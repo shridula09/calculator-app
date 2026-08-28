@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef2f7;
+    color: #172033;
+}
+
+.app {
+    width: min(900px, 100%);
+    display: grid;
+    grid-template-columns: minmax(300px, 420px) minmax(240px, 1fr);
+    gap: 24px;
+}
+
+.calculator,
+.history-panel {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(23, 32, 51, 0.12);
+}
+
+.calculator {
+    overflow: hidden;
+}
+
+.display {
+    min-height: 150px;
+    padding: 28px 24px;
+    background: #172033;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 8px;
+    overflow: hidden;
+}
+
+.previous-display {
+    min-height: 24px;
+    font-size: 18px;
+    opacity: 0.65;
+}
+
+.current-display {
+    width: 100%;
+    text-align: right;
+    font-size: clamp(42px, 8vw, 64px);
+    font-weight: 600;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 16px;
+}
+
+button {
+    min-height: 68px;
+    border: 0;
+    border-radius: 14px;
+    background: #edf1f6;
+    color: #172033;
+    font-size: 22px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.08s ease, filter 0.15s ease;
+}
+
+button:hover {
+    filter: brightness(0.96);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+button.operator,
+button.equals {
+    background: #4f46e5;
+    color: white;
+}
+
+button.function {
+    background: #dfe5ee;
+}
+
+.history-panel {
+    min-height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.history-header h2 {
+    font-size: 22px;
+}
+
+.history-header button {
+    min-height: auto;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    max-height: 500px;
+}
+
+.empty-history {
+    color: #687386;
+    line-height: 1.5;
+}
+
+.history-item {
+    padding: 12px;
+    border-radius: 12px;
+    background: #f4f6f9;
+}
+
+.history-expression {
+    color: #687386;
+    font-size: 14px;
+}
+
+.history-result {
+    margin-top: 4px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+@media (max-width: 720px) {
+    body {
+        padding: 12px;
+    }
+
+    .app {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+    }
+
+    .history-panel {
+        min-height: auto;
+    }
+}
